@@ -1,8 +1,7 @@
 version: '2'
 
 services:
-  Spello:
-    image: user/Spello${TAG}
+  spello:
     build:
       context: .
       dockerfile: Dockerfile
