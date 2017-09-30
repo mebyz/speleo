@@ -1,0 +1,22 @@
+#FROM microsoft/dotnet:1.0-sdk-projectjson
+#FROM microsoft/dotnet:1.1.0-runtime
+#ARG source=.
+#WORKDIR /app
+#EXPOSE 80
+#COPY $source .
+#ENTRYPOINT ["dotnet", "Spello.dll"]
+
+FROM microsoft/dotnet:1.0-sdk-projectjson
+ARG source=.
+WORKDIR /Spello
+COPY $source /Spello
+RUN ["dotnet", "restore"]
+RUN ["dotnet", "build"]
+
+
+EXPOSE 9000/tcp
+ENV ASPNETCORE_URLS http://*:9000
+
+ENTRYPOINT ["dotnet", "run"]
+ENV ASPNETCORE_ENVIRONMENT Development
+
