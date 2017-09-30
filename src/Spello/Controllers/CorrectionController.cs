@@ -43,7 +43,6 @@ namespace Spello.Controllers
     [EnableCors("CorsPolicy")]
     public class CorrectionController : Controller
     {
-
         /// <summary>
         /// Get Spello correction
         /// </summary>
@@ -53,13 +52,17 @@ namespace Spello.Controllers
         [Route("correct")]
         [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(MainResult))]
         [ResponseCache(Duration = 3600)] //1h de cache
-        public IActionResult GetCorrection(string text)
+        public IActionResult GetCorrection([FromQuery]string text = "")
         {
-            string input = "voiciun essai" ;
+            var spell = SymSpell.Instance;
 
-            var correct = SymSpell.Correct(input, "");
-
-            return Ok("faux: " + input + " >> vrai: " + correct);
+            string input = text != "" ? text.ToString() : "";
+            if (input != "") {
+                var correct = spell.Correct(input, "");
+                return Ok(correct != "" ? correct : text);
+            } else {
+                return Ok(text);
+            }
         }
 
 

@@ -27,7 +27,7 @@ namespace Spello.Services
         /// todo
         /// </summary>
         /// <remarks>todo</remarks>  
-        public static string Correct(string input, string language)
+        public string Correct(string input, string language)
         {
             List<SymSpellCompound.suggestItem> suggestions = null;
             if (SymSpellCompound.enableCompoundCheck)
@@ -50,19 +50,22 @@ namespace Spello.Services
             //if (SymSpellCompound.verbose != 0) Console.WriteLine(suggestions.Count.ToString() + " suggestions");
         }
 
-        private SymSpell()
+        /// <summary>
+        /// todo
+        /// </summary>
+        /// <remarks>todo</remarks>  
+        public SymSpell()
         {
             //set global parameters
 			SymSpellCompound.enableCompoundCheck=true;
             SymSpellCompound.verbose = 1;
-            SymSpellCompound.editDistanceMax = 1;
+            SymSpellCompound.editDistanceMax = 0;
 
-            string path = "fr.txt";  //path when using SymSpellCompound.cs
+            string path = "src/Spello/fr.txt";  //path when using SymSpellCompound.cs
             if (!SymSpellCompound.LoadDictionary(path, "", 0, 1)) 
                 Console.Error.WriteLine("File not found: " + Path.GetFullPath(path)); 
 
             Console.WriteLine("\rDictionary: " + SymSpellCompound.wordlist.Count.ToString("N0") + " words, " + SymSpellCompound.dictionary.Count.ToString("N0") + " entries, edit distance=" + SymSpellCompound.editDistanceMax.ToString() );
-
         }
     }
 }
