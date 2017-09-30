@@ -1,12 +1,4 @@
-#FROM microsoft/dotnet:1.0-sdk-projectjson
-#FROM microsoft/dotnet:1.1.0-runtime
-#ARG source=.
-#WORKDIR /app
-#EXPOSE 80
-#COPY $source .
-#ENTRYPOINT ["dotnet", "Spello.dll"]
-
-FROM microsoft/dotnet:1.0-sdk-projectjson
+FROM microsoft/aspnetcore-build:2.0
 ARG source=.
 WORKDIR /Spello
 COPY $source /Spello
