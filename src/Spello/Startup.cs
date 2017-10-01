@@ -8,10 +8,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.Swagger.Model;
-using Microsoft.Extensions.PlatformAbstractions;
 using Spello.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using System.IO;
+using System.Reflection;
 
 namespace Spello
 {
@@ -106,8 +107,7 @@ namespace Spello
 
         private string GetXmlCommentsPath()
         {
-            var app = PlatformServices.Default.Application;
-            return System.IO.Path.Combine(app.ApplicationBasePath, "Spello.xml");
+            return System.IO.Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Spello.xml");
         }
     }
 }
