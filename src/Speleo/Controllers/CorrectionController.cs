@@ -49,13 +49,12 @@ namespace Speleo.Controllers
         [HttpGet]
         [Route("correct")]
         [ResponseCache(Duration = 3600)] //1h de cache
-        public IActionResult GetCorrection([FromQuery]string text = "")
+        public IActionResult GetCorrection([FromQuery]string text = "", string language = "en", int editDistanceMax = 0, bool enableCompoundCheck = true)
         {
             var spell = SymSpell.Instance;
-
             string input = text != "" ? text.ToString() : "";
             if (input != "") {
-                var correct = spell.Correct(input, "");
+                var correct = spell.Correct(input, language, editDistanceMax, enableCompoundCheck);
                 return Ok(correct != "" ? correct : text);
             } else {
                 return Ok(text);

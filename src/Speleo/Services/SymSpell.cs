@@ -6,7 +6,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Speleo.Services
-{    
+{
+
     /// <summary>
     /// todo
     /// </summary>
@@ -14,6 +15,8 @@ namespace Speleo.Services
     public sealed class SymSpell
     {
         
+        private string _lang = "en";       
+    
         private static readonly Lazy<SymSpell> lazy =
             new Lazy<SymSpell>(() => new SymSpell());
         
@@ -22,32 +25,42 @@ namespace Speleo.Services
         /// </summary>
         /// <remarks>todo</remarks>     
         public static SymSpell Instance { get { return lazy.Value; } }
+        /// <summary>
+        /// todo
+        /// </summary>
+        /// <remarks>todo</remarks>     
+
+        public string Correct(string input, string language = "en", int editDistanceMax = 2, bool enableCompoundCheck = true)
+        {
+            if (_lang != language) {
+                loadLanguage(language);
+            }
+
+			SymSpellCompound.enableCompoundCheck=enableCompoundCheck;
+            SymSpellCompound.verbose = 0;
+            SymSpellCompound.editDistanceMax = editDistanceMax;
+
+            List<SymSpellCompound.suggestItem> suggestions = null;
+
+            //check if input term or similar terms within edit-distance are in dictionary, return results sorted by ascending edit distance, then by descending word frequency     
+			if (SymSpellCompound.enableCompoundCheck) suggestions = SymSpellCompound.LookupCompound(input, language, SymSpellCompound.editDistanceMax); else suggestions = SymSpellCompound.Lookup(input, language, SymSpellCompound.editDistanceMax);
+
+            return suggestions.FirstOrDefault() != null ? suggestions.FirstOrDefault().term : input;
+        }
 
         /// <summary>
         /// todo
         /// </summary>
         /// <remarks>todo</remarks>  
-        public string Correct(string input, string language)
+        private void loadLanguage(string lang = "en")
         {
-            List<SymSpellCompound.suggestItem> suggestions = null;
-            if (SymSpellCompound.enableCompoundCheck)
-            {
-                suggestions = SymSpellCompound.LookupCompound(input, language, SymSpellCompound.editDistanceMax);
-            }
-            else
-            {
-                suggestions = SymSpellCompound.Lookup(input, language, SymSpellCompound.editDistanceMax);
-            }
 
-            if (suggestions.Count() >= 0 && suggestions[0].term.Count() > 0) 
-            {
-                return suggestions[0].term;
-            } 
-            else 
-            {
-                return input;
-            }
-            //if (SymSpellCompound.verbose != 0) Console.WriteLine(suggestions.Count.ToString() + " suggestions");
+            string path = lang + ".txt";  //path when using SymSpellCompound.cs
+            if (!SymSpellCompound.LoadDictionary(path, lang, 0, 1)) 
+                Console.Error.WriteLine("File not found: " + Path.GetFullPath(path)); 
+
+            Console.WriteLine("\rDictionary: " + SymSpellCompound.wordlist.Count.ToString("N0") + " words, " + SymSpellCompound.dictionary.Count.ToString("N0") + " entries, edit distance=" + SymSpellCompound.editDistanceMax.ToString() );
+            _lang = lang;
         }
 
         /// <summary>
@@ -56,16 +69,7 @@ namespace Speleo.Services
         /// <remarks>todo</remarks>  
         public SymSpell()
         {
-            //set global parameters
-			SymSpellCompound.enableCompoundCheck=true;
-            SymSpellCompound.verbose = 1;
-            SymSpellCompound.editDistanceMax = 0;
-
-            string path = "fr.txt";  //path when using SymSpellCompound.cs
-            if (!SymSpellCompound.LoadDictionary(path, "", 0, 1)) 
-                Console.Error.WriteLine("File not found: " + Path.GetFullPath(path)); 
-
-            Console.WriteLine("\rDictionary: " + SymSpellCompound.wordlist.Count.ToString("N0") + " words, " + SymSpellCompound.dictionary.Count.ToString("N0") + " entries, edit distance=" + SymSpellCompound.editDistanceMax.ToString() );
+            loadLanguage(_lang);
         }
     }
 }
