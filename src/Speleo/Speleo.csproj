@@ -5,9 +5,9 @@
     <DebugType>portable</DebugType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PreserveCompilationContext>true</PreserveCompilationContext>
-    <AssemblyName>Spello</AssemblyName>
+    <AssemblyName>Speleo</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>Spello</PackageId>
+    <PackageId>Speleo</PackageId>
     <RuntimeFrameworkVersion>2.0.0</RuntimeFrameworkVersion>
   </PropertyGroup>
 

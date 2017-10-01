@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{91DF0637-424B-4B4E-9C7C-1B078B466A61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spello", "src\Spello\Spello.csproj", "{43551437-E777-49B2-BAED-7DC9C717CE7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speleo", "src\Speleo\Speleo.csproj", "{43551437-E777-49B2-BAED-7DC9C717CE7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

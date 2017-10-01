@@ -1,10 +1,10 @@
 FROM microsoft/dotnet:2.0.0-runtime-jessie
-WORKDIR /Spello
-COPY . /Spello
+WORKDIR /Speleo
+COPY . /Speleo
 
 
 EXPOSE 5000/tcp
 ENV ASPNETCORE_URLS http://*:5000
 
-ENTRYPOINT ["dotnet", "Spello.dll"]
+ENTRYPOINT ["dotnet", "Speleo.dll"]
 ENV ASPNETCORE_ENVIRONMENT Development

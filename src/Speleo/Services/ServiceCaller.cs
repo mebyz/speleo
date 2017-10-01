@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Spello.Services
+namespace Speleo.Services
 {
     /// <summary>
     /// todo

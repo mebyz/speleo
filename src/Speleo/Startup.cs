@@ -8,13 +8,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.Swagger.Model;
-using Spello.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using System.IO;
 using System.Reflection;
 
-namespace Spello
+namespace Speleo
 {
     /// <summary>
     /// todo
@@ -77,8 +76,8 @@ namespace Spello
                 options.SingleApiVersion(new Info
                 {
                     Version = "v1",
-                    Title = "Spello",
-                    Description = "Spello API (using .Net Core 2 Web API - Docker - Rancher)",
+                    Title = "Speleo",
+                    Description = "Speleo API (using .Net Core 2 Web API - Docker - Rancher)",
                     TermsOfService = "None",
                     Contact = new Contact() { Name = "Emmanuel BOTROS YOUSSEF", Email = "e.botros@lekiosk.com", Url = "www.lekiosk.com" }
                 });
@@ -107,7 +106,7 @@ namespace Spello
 
         private string GetXmlCommentsPath()
         {
-            return System.IO.Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Spello.xml");
+            return System.IO.Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Speleo.xml");
         }
     }
 }

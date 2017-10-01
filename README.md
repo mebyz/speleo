@@ -1,10 +1,10 @@
-# spello 
+# speleo 
 ### author : mebyz (e.botros@lekiosk.com)
 ## A probabilistic approach to the "text fragmentation" problem using SymSpell and dotnet core 2.0
 
 dotnet restore
 
-cd src/Spello
+cd src/Speleo
 
 dotnet build
 
