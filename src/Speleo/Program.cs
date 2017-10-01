@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 
-namespace Spello
+namespace Speleo
 {
     /// <summary>
     /// todo
@@ -24,7 +24,7 @@ namespace Spello
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseUrls("http://localhost:9000/")
+                .UseUrls("http://*:5000/")
                 .UseStartup<Startup>()
                 .Build();
 

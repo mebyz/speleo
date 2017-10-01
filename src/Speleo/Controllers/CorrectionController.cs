@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Spello.Models;
 using Swashbuckle.SwaggerGen.Annotations;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Cors;
@@ -7,9 +6,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Collections.Generic;
 using System;
-using Spello.Services;
+using Speleo.Services;
 
-namespace Spello.Controllers
+namespace Speleo.Controllers
 {
     /// <summary>
     /// todo
@@ -26,7 +25,6 @@ namespace Spello.Controllers
         /// <returns>ok</returns>
         [HttpGet]
         [Route("")]
-        [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(MainResult))]
         [ResponseCache(Duration = 3600 * 1000)] //1h de cache
         public IActionResult Root()
         {
@@ -44,13 +42,12 @@ namespace Spello.Controllers
     public class CorrectionController : Controller
     {
         /// <summary>
-        /// Get Spello correction
+        /// Get Speleo correction
         /// </summary>
-        /// <remarks>Get Spello correction</remarks>
+        /// <remarks>Get Speleo correction</remarks>
         /// <returns>corrected text</returns>
         [HttpGet]
         [Route("correct")]
-        [SwaggerResponse(System.Net.HttpStatusCode.OK, Type = typeof(MainResult))]
         [ResponseCache(Duration = 3600)] //1h de cache
         public IActionResult GetCorrection([FromQuery]string text = "")
         {

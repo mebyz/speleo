@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Spello.Services
+namespace Speleo.Services
 {    
     /// <summary>
     /// todo
@@ -61,7 +61,7 @@ namespace Spello.Services
             SymSpellCompound.verbose = 1;
             SymSpellCompound.editDistanceMax = 0;
 
-            string path = "src/Spello/fr.txt";  //path when using SymSpellCompound.cs
+            string path = "src/Speleo/fr.txt";  //path when using SymSpellCompound.cs
             if (!SymSpellCompound.LoadDictionary(path, "", 0, 1)) 
                 Console.Error.WriteLine("File not found: " + Path.GetFullPath(path)); 
 

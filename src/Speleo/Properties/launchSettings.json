@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:9000/",
+      "applicationUrl": "http://localhost:5000/",
       "sslPort": 44317
     }
   },
@@ -16,10 +16,10 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Spello": {
+    "Speleo": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:9000/",
+      "launchUrl": "http://localhost:5000/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

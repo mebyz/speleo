@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  Spello:
+  Speleo:
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=linux"
     volumes:
