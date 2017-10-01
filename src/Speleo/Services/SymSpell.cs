@@ -61,7 +61,7 @@ namespace Speleo.Services
             SymSpellCompound.verbose = 1;
             SymSpellCompound.editDistanceMax = 0;
 
-            string path = "src/Speleo/fr.txt";  //path when using SymSpellCompound.cs
+            string path = "fr.txt";  //path when using SymSpellCompound.cs
             if (!SymSpellCompound.LoadDictionary(path, "", 0, 1)) 
                 Console.Error.WriteLine("File not found: " + Path.GetFullPath(path)); 
 
