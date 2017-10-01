@@ -2,14 +2,47 @@
 ### author : mebyz (e.botros@lekiosk.com)
 ## A probabilistic approach to the "text fragmentation" problem using SymSpell and dotnet core 2.0
 
-dotnet restore
+###PREREQUISTES
+- dotnet core 2.x installed
+- VSCode
 
-cd src/Speleo
+###RUN
 
-dotnet build
+``dotnet restore``
 
-dotnet run
+``cd src/Speleo``
 
-try http://localhost:5000/api/v1/correct
+``dotnet build``
 
-.. enjoy !
+``dotnet run``
+
+> then go to http://localhost:5000/
+
+###TRY
+
+/api/v1/correct?text=toitureendommagée => "toiture endommagée"
+
+/api/v1/correct?text=voitureelectrique => "voiture electrique"
+
+/api/v1/correct?text=poivrevert => "poivre vert"
+ 
+
+###PUBLISH
+
+``donet publish``
+
+then publish content of the ``src/Speleo/bin/Debug/netcoreapp2.0/publish/`` folder to ``speleo_builds`` repository
+
+=> reminder : only deploy TAGS in production. do NOT deploy branches.
+
+###RUN LOCAL DOCKER
+
+``donet publish``
+
+``cd src/Speleo/bin/Debug/netcoreapp2.0/publish``
+
+``docker-compose build``
+
+``docker-compose up``
+
+> then go to http://localhost:5000/
