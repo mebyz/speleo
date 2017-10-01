@@ -4,11 +4,13 @@
 ###### author : mebyz - e.botros@lekiosk.com
 
 
-##PREREQUISTES
+
+## PREREQUISTES
 - dotnet core 2.x installed
 - VSCode
 
-##RUN
+
+## RUN
 
 ``dotnet restore``
 
@@ -20,7 +22,8 @@
 
 > then go to http://localhost:5000/
 
-##PUBLISH
+
+## PUBLISH
 
 ``donet publish``
 
@@ -30,7 +33,8 @@ to ``speleo_builds`` repository
 
 **reminder : only deploy TAGS in production. do NOT deploy branches.**
 
-##RUN LOCAL DOCKER
+
+## RUN LOCAL DOCKER
 
 `donet publish`
 
@@ -42,7 +46,8 @@ to ``speleo_builds`` repository
 
 > then go to http://localhost:5000/
 
-##TRY
+
+## TRY
 
 `/api/v1/correct?language=fr&editDistanceMax=0&enableCompoundCheck=true&text=toitureendommagée`
 
@@ -56,7 +61,7 @@ produces => "voiture electrique"
 
 produces => "poivre vert"
 
-##sample use of the english dictionary:
+## sample use of the english dictionary:
 
 *input : "whereis th elove hehad dated forImuch of thepast who couqdn'tread in sixthgrade and ins pired him"*
 
