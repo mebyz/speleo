@@ -1,12 +1,12 @@
 # speleo 
 ### author : mebyz (e.botros@lekiosk.com)
-## A probabilistic approach to the "text fragmentation" problem using SymSpell and dotnet core 2.0
+## A language-agnostic probabilistic approach to the "text fragmentation" problem using SymSpell and dotnet core 2.0
 
 ###PREREQUISTES
 - dotnet core 2.x installed
 - VSCode
 
-###RUN
+=== RUN
 
 ``dotnet restore``
 
@@ -18,7 +18,7 @@
 
 > then go to http://localhost:5000/
 
-###TRY
+=== TRY
 
 /api/v1/correct?text=toitureendommagée => "toiture endommagée"
 
@@ -27,7 +27,7 @@
 /api/v1/correct?text=poivrevert => "poivre vert"
  
 
-###PUBLISH
+=== PUBLISH
 
 ``donet publish``
 
@@ -35,7 +35,7 @@ then publish content of the ``src/Speleo/bin/Debug/netcoreapp2.0/publish/`` fold
 
 => reminder : only deploy TAGS in production. do NOT deploy branches.
 
-###RUN LOCAL DOCKER
+=== RUN LOCAL DOCKER
 
 ``donet publish``
 
